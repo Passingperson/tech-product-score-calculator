@@ -108,5 +108,16 @@
     "priceScore": 8,
     "bodyPart": "backpack",
     "emoji": "🎮"
+  },
+  {
+    "id": 22,
+    "name": "运动相机",
+    "category": "手持设备",
+    "techScore": 7,
+    "costScore": 6,
+    "portabilityScore": 9,
+    "priceScore": 7,
+    "bodyPart": "hand",
+    "emoji": "📹"
   }
 ]
