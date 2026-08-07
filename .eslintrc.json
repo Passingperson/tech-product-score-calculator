@@ -1,0 +1,12 @@
+{
+  "extends": ["airbnb-base"],
+  "env": {
+    "node": true,
+    "jest": true,
+    "browser": true
+  },
+  "rules": {
+    "no-console": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+  }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>科技产品分值计算器</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📱 科技产品分值计算器</h1>
+      <div class="controls">
+        <label for="sortSelect">排序方式：</label>
+        <select id="sortSelect">
+          <option value="category">按品类（字母）</option>
+          <option value="score">按总分（从高到低）</option>
+        </select>
+      </div>
+    </header>
+    <div id="productGrid" class="grid"></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

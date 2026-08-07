@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "name": "智能手机",
+    "category": "通讯",
+    "techScore": 8,
+    "costScore": 7,
+    "portabilityScore": 6,
+    "priceScore": 8
+  },
+  {
+    "id": 2,
+    "name": "笔记本电脑",
+    "category": "计算",
+    "techScore": 9,
+    "costScore": 8,
+    "portabilityScore": 4,
+    "priceScore": 9
+  },
+  {
+    "id": 3,
+    "name": "平板电脑",
+    "category": "计算",
+    "techScore": 8,
+    "costScore": 6,
+    "portabilityScore": 7,
+    "priceScore": 7
+  },
+  {
+    "id": 4,
+    "name": "台式电脑",
+    "category": "计算",
+    "techScore": 8,
+    "costScore": 7,
+    "portabilityScore": 2,
+    "priceScore": 8
+  },
+  {
+    "id": 5,
+    "name": "智能手表",
+    "category": "穿戴",
+    "techScore": 7,
+    "costScore": 5,
+    "portabilityScore": 9,
+    "priceScore": 6
+  },
+  {
+    "id": 6,
+    "name": "蓝牙耳机",
+    "category": "音频",
+    "techScore": 6,
+    "costScore": 4,
+    "portabilityScore": 9,
+    "priceScore": 5
+  },
+  {
+    "id": 7,
+    "name": "充电宝",
+    "category": "配件",
+    "techScore": 5,
+    "costScore": 3,
+    "portabilityScore": 8,
+    "priceScore": 4
+  },
+  {
+    "id": 8,
+    "name": "智能音箱",
+    "category": "音频",
+    "techScore": 6,
+    "costScore": 5,
+    "portabilityScore": 6,
+    "priceScore": 5
+  },
+  {
+    "id": 9,
+    "name": "数码相机",
+    "category": "影像",
+    "techScore": 8,
+    "costScore": 6,
+    "portabilityScore": 5,
+    "priceScore": 8
+  },
+  {
+    "id": 10,
+    "name": "游戏主机",
+    "category": "娱乐",
+    "techScore": 8,
+    "costScore": 7,
+    "portabilityScore": 3,
+    "priceScore": 7
+  },
+  {
+    "id": 11,
+    "name": "路由器",
+    "category": "网络",
+    "techScore": 7,
+    "costScore": 5,
+    "portabilityScore": 4,
+    "priceScore": 5
+  },
+  {
+    "id": 12,
+    "name": "无人机",
+    "category": "飞行",
+    "techScore": 9,
+    "costScore": 8,
+    "portabilityScore": 4,
+    "priceScore": 9
+  },
+  {
+    "id": 13,
+    "name": "智能眼镜",
+    "category": "穿戴",
+    "techScore": 8,
+    "costScore": 6,
+    "portabilityScore": 8,
+    "priceScore": 7
+  },
+  {
+    "id": 14,
+    "name": "VR头显",
+    "category": "娱乐",
+    "techScore": 9,
+    "costScore": 7,
+    "portabilityScore": 3,
+    "priceScore": 9
+  },
+  {
+    "id": 15,
+    "name": "电子阅读器",
+    "category": "阅读",
+    "techScore": 6,
+    "costScore": 4,
+    "portabilityScore": 8,
+    "priceScore": 5
+  },
+  {
+    "id": 16,
+    "name": "移动硬盘",
+    "category": "存储",
+    "techScore": 5,
+    "costScore": 3,
+    "portabilityScore": 6,
+    "priceScore": 4
+  },
+  {
+    "id": 17,
+    "name": "U盘",
+    "category": "存储",
+    "techScore": 4,
+    "costScore": 2,
+    "portabilityScore": 9,
+    "priceScore": 3
+  },
+  {
+    "id": 18,
+    "name": "键盘",
+    "category": "外设",
+    "techScore": 5,
+    "costScore": 3,
+    "portabilityScore": 7,
+    "priceScore": 4
+  },
+  {
+    "id": 19,
+    "name": "鼠标",
+    "category": "外设",
+    "techScore": 4,
+    "costScore": 2,
+    "portabilityScore": 9,
+    "priceScore": 3
+  },
+  {
+    "id": 20,
+    "name": "显示器",
+    "category": "外设",
+    "techScore": 6,
+    "costScore": 5,
+    "portabilityScore": 1,
+    "priceScore": 7
+  }
+]
