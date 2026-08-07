@@ -168,11 +168,9 @@ function updateBodyView() {
     label.className = 'product-label';
     label.style.left = pos.left;
     label.style.top = pos.top;
-    let text = first.name;
-    if (items.length > 1) {
-      text += ` 等${items.length}种`;
-    }
-    text += ` ×${totalQty}`;
+    // 收集该部位所有产品的 Emoji
+    const emojiList = items.map(p => p.emoji).join(' ');
+    const text = `${emojiList} ×${totalQty}`;
     label.textContent = text;
     frontLabels.appendChild(label);
   });
