@@ -181,7 +181,7 @@ function updateBodyView() {
   } else {
     backpackList.innerHTML = backpackItems.map(p => {
       const qty = quantities[p.id] || 0;
-      return `<span class="backpack-item">${p.name} ×${qty}</span>`;
+      return `<span class="backpack-item">${p.emoji} ×${qty}</span>`;
     }).join('');
   }
 
