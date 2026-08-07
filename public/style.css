@@ -323,3 +323,30 @@ h1 {
   font-size: 1.2rem;
   margin-right: 0.2rem;
 }
+
+/* 侧视图背包列表 - 定位到虚线框内 */
+#sideBody .backpack-list {
+  left: 20%;          /* 与SVG虚线框x=40对应 (40/200) */
+  top: 25%;           /* 与SVG虚线框y=100对应 (100/400) */
+  width: 20%;         /* 与SVG虚线框width=40对应 */
+  height: 17.5%;      /* 与SVG虚线框height=70对应 (70/400) */
+  padding: 2px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2px;
+  overflow: hidden;   /* 防止溢出虚线框 */
+}
+
+/* 背包内每个产品项（Emoji + 数量） */
+.backpack-item {
+  background: #2563eb;
+  color: white;
+  font-size: 0.5rem;   /* 缩小以适应小区域 */
+  padding: 1px 4px;
+  border-radius: 10px;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
