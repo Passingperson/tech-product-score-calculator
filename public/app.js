@@ -23,11 +23,9 @@ const categoryOrder = {
 
 function sortProducts(list) {
   return [...list].sort((a, b) => {
-    // 先按品类顺序
     const orderA = categoryOrder[a.category] || 99;
     const orderB = categoryOrder[b.category] || 99;
     if (orderA !== orderB) return orderA - orderB;
-    // 再按总分降序
     const scoreA = computeTotal(a);
     const scoreB = computeTotal(b);
     return scoreB - scoreA;
@@ -48,12 +46,12 @@ async function fetchProducts() {
   }
 }
 
-// ----- 计算单个产品总分（等权平均） -----
+// ----- 计算单个产品总分 -----
 function computeTotal(p) {
   return (p.techScore + p.costScore + p.portabilityScore + p.priceScore) / 4;
 }
 
-// ----- 计算所有选中产品的总分合计（数量×总分） -----
+// ----- 计算所有选中产品的总分合计 -----
 function computeTotalScoreSum() {
   let sum = 0;
   products.forEach(p => {
@@ -65,35 +63,57 @@ function computeTotalScoreSum() {
   return sum;
 }
 
-// ----- 渲染卡片（固定排序） -----
+// ----- 渲染卡片（按品类分组，每行一个品类） -----
 function renderProducts() {
   const sorted = sortProducts(products);
 
-  grid.innerHTML = sorted.map(p => {
-    const total = computeTotal(p);
-    const qty = quantities[p.id] || 0;
-    const isActive = qty > 0 ? 'active' : '';
-    return `
-      <div class="card ${isActive}" data-id="${p.id}">
-        <div class="card-header">
-          <span class="card-name">${p.name}</span>
-          <span class="card-total">${total.toFixed(1)}</span>
+  // 按品类分组
+  const groups = {};
+  sorted.forEach(p => {
+    if (!groups[p.category]) groups[p.category] = [];
+    groups[p.category].push(p);
+  });
+
+  // 按定义顺序排列品类
+  const categoryKeys = Object.keys(groups).sort((a, b) => {
+    return (categoryOrder[a] || 99) - (categoryOrder[b] || 99);
+  });
+
+  let html = '';
+  categoryKeys.forEach(cat => {
+    const items = groups[cat];
+    html += `<div class="category-row">`;
+    html += `<div class="category-row-header">${cat}</div>`;
+    html += `<div class="category-row-cards">`;
+    items.forEach(p => {
+      const total = computeTotal(p);
+      const qty = quantities[p.id] || 0;
+      const isActive = qty > 0 ? 'active' : '';
+      html += `
+        <div class="card ${isActive}" data-id="${p.id}">
+          <div class="card-header">
+            <span class="card-name">${p.name}</span>
+            <span class="card-total">${total.toFixed(1)}</span>
+          </div>
+          <div class="card-category">${p.category}</div>
+          <div class="quantity-control">
+            <button class="qty-btn" data-action="decrement" data-id="${p.id}">−</button>
+            <span class="qty-number" data-id="${p.id}">${qty}</span>
+            <button class="qty-btn" data-action="increment" data-id="${p.id}">+</button>
+          </div>
+          <div class="details">
+            <div class="detail-item"><span class="label">技术复杂度</span><span class="value">${p.techScore}</span></div>
+            <div class="detail-item"><span class="label">生产成本</span><span class="value">${p.costScore}</span></div>
+            <div class="detail-item"><span class="label">便携性</span><span class="value">${p.portabilityScore}</span></div>
+            <div class="detail-item"><span class="label">市场均价</span><span class="value">${p.priceScore}</span></div>
+          </div>
         </div>
-        <div class="card-category">${p.category}</div>
-        <div class="quantity-control">
-          <button class="qty-btn" data-action="decrement" data-id="${p.id}">−</button>
-          <span class="qty-number" data-id="${p.id}">${qty}</span>
-          <button class="qty-btn" data-action="increment" data-id="${p.id}">+</button>
-        </div>
-        <div class="details">
-          <div class="detail-item"><span class="label">技术复杂度</span><span class="value">${p.techScore}</span></div>
-          <div class="detail-item"><span class="label">生产成本</span><span class="value">${p.costScore}</span></div>
-          <div class="detail-item"><span class="label">便携性</span><span class="value">${p.portabilityScore}</span></div>
-          <div class="detail-item"><span class="label">市场均价</span><span class="value">${p.priceScore}</span></div>
-        </div>
-      </div>
-    `;
-  }).join('');
+      `;
+    });
+    html += `</div></div>`;
+  });
+
+  grid.innerHTML = html;
 
   // 绑定卡片点击
   document.querySelectorAll('.card').forEach(card => {
@@ -135,7 +155,6 @@ function updateBodyView() {
     else groups.backpack.push(p);
   });
 
-  // 正面部位
   const frontParts = ['head', 'wrist', 'hand', 'pocket'];
   frontParts.forEach(part => {
     const items = groups[part] || [];
@@ -158,7 +177,6 @@ function updateBodyView() {
     frontLabels.appendChild(label);
   });
 
-  // 背包
   const backpackItems = groups.backpack || [];
   if (backpackItems.length === 0) {
     backpackList.innerHTML = `<span class="empty-hint">未选中大型产品</span>`;
@@ -169,12 +187,11 @@ function updateBodyView() {
     }).join('');
   }
 
-  // 更新总分显示
   const totalSum = computeTotalScoreSum();
   totalScoreValue.textContent = totalSum.toFixed(1);
 }
 
-// ----- 刷新视图 -----
+// ----- 刷新 -----
 function refresh() {
   renderProducts();
   updateBodyView();

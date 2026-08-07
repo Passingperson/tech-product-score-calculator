@@ -160,9 +160,9 @@ h1 {
 
 /* ===== 产品卡片网格 ===== */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
   margin-top: 1.5rem;
 }
 
@@ -288,4 +288,31 @@ h1 {
     flex-direction: column;
     align-items: center;
   }
+}
+
+/* 品类行容器 */
+.category-row {
+  margin-bottom: 1.5rem;
+}
+
+.category-row-header {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e5e7eb;
+  margin-bottom: 0.8rem;
+}
+
+.category-row-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* 卡片在行内的宽度自适应，但最小宽度保持不变 */
+.category-row-cards .card {
+  flex: 0 1 auto;
+  min-width: 200px;
+  max-width: 240px;
 }
