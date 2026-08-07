@@ -92,7 +92,7 @@ function renderProducts() {
       html += `
         <div class="card ${isActive}" data-id="${p.id}">
           <div class="card-header">
-            <span class="card-name">${p.name}</span>
+            <span class="card-name">${p.emoji} ${p.name}</span>
             <span class="card-total">${total.toFixed(1)}</span>
           </div>
           <div class="card-category">${p.category}</div>
